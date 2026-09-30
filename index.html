@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoveGame I｜戀愛別裝忙 — 戀愛生存遊戲與關係養成 App</title>
+  <meta name="description" content="把「我記得」變成真的有做到。LoveGame I 是一款把戀愛中的重要日、日常互動與小小心意，變成遊戲任務的關係養成 App。我們，這次一起活下來。">
+  <meta name="keywords" content="LoveGame, 戀愛別裝忙, 戀愛生存遊戲, 關係養成, 情侶App, 曖昧攻略, 紀念日提醒, 任務養成">
+
+  <!-- Google Fonts: DotGothic16 for Pixel Vibe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=JetBrains+Mono:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt-enabled">
+  <!-- CRT Scanline Overlay -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <!-- Top System Status Bar / HUD -->
+  <header class="system-hud" id="system-hud">
+    <div class="hud-container">
+      <div class="hud-brand">
+        <a href="#hero" class="brand-link">
+          <span class="pixel-heart">❤</span>
+          <span class="brand-text">LOVEGAME I</span>
+        </a>
+        <span class="hud-status-chip"><span class="blink-dot"></span>SYS.ONLINE</span>
+      </div>
+
+      <nav class="hud-nav" id="hud-nav">
+        <a href="#game-loop" class="nav-item">[遊戲流程]</a>
+        <a href="#journey" class="nav-item">[重要日旅程]</a>
+        <a href="#routes" class="nav-item">[三種路線]</a>
+        <a href="#quests" class="nav-item">[日常挑戰]</a>
+        <a href="#archive" class="nav-item">[篇章收藏]</a>
+      </nav>
+
+      <div class="hud-actions">
+        <button id="crt-toggle-btn" class="hud-tool-btn" title="切換 CRT 螢幕掃描線效果" aria-label="切換 CRT 螢幕掃描線">
+          <span class="btn-text">[CRT: ON]</span>
+        </button>
+        <a href="#cta-section" class="btn-pixel btn-primary btn-sm">[開始這段旅程]</a>
+        <button class="menu-toggle-btn" id="menu-toggle-btn" aria-label="打開選單">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <a href="#game-loop" class="mobile-nav-link">[遊戲流程]</a>
+      <a href="#journey" class="mobile-nav-link">[重要日旅程]</a>
+      <a href="#routes" class="mobile-nav-link">[三種路線]</a>
+      <a href="#quests" class="mobile-nav-link">[日常挑戰]</a>
+      <a href="#archive" class="mobile-nav-link">[篇章收藏]</a>
+      <a href="#cta-section" class="btn-pixel btn-primary mobile-cta-btn">[開始這段旅程]</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop-grid" aria-hidden="true"></div>
+      
+      <div class="section-container hero-container">
+        <div class="hero-content">
+          <div class="system-tag-row">
+            <span class="badge badge-cyan">[ROMANCE SURVIVAL PROTOCOL]</span>
+            <span class="badge badge-purple">SYSTEM v1.0.4</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-sub">LoveGame I</span>
+            <span class="title-main">戀愛別裝忙</span>
+          </h1>
+
+          <div class="hero-quote-box">
+            <div class="quote-terminal-header">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">SURVIVAL_LOG.SYS</span>
+            </div>
+            <p class="quote-text">「我們，這次一起活下來。」</p>
+          </div>
+
+          <p class="hero-desc">
+            把<strong>「我記得」</strong>變成真的有做到。<br>
+            LoveGame I 是一款把戀愛中的重要日、日常互動與小小心意，變成遊戲任務的關係養成 App。
+            不是要你成為完美伴侶，而是讓你在忙碌生活裡，還能記得那些重要的人與日子。
+          </p>
+
+          <div class="hero-btn-group">
+            <a href="#cta-section" class="btn-pixel btn-primary btn-lg">
+              <span class="btn-bracket">[</span>開始這段旅程<span class="btn-bracket">]</span>
+            </a>
+            <a href="#journey" class="btn-pixel btn-secondary btn-lg">
+              <span class="btn-bracket">[</span>查看任務體驗<span class="btn-bracket">]</span>
+            </a>
+          </div>
+
+          <div class="hero-quick-stats">
+            <div class="stat-pill">
+              <span class="stat-label">EXP累計機制</span>
+              <span class="stat-val color-gold">連續行動回饋</span>
+            </div>
+            <div class="stat-divider">/</div>
+            <div class="stat-pill">
+              <span class="stat-label">寬容生存法則</span>
+              <span class="stat-val color-green">逾期不GG·永不歸零</span>
+            </div>
+            <div class="stat-divider">/</div>
+            <div class="stat-pill">
+              <span class="stat-label">模式支援</span>
+              <span class="stat-val color-pink">伴侶 ＆ 曖昧攻略</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO INTERACTIVE ARCADE TERMINAL -->
+        <div class="hero-terminal-wrapper">
+          <div class="terminal-cabinet">
+            <!-- Mode Switcher Tabs -->
+            <div class="terminal-top-tabs">
+              <button class="mode-tab active" data-mode="partner" id="tab-partner">
+                [伴侶模式]
+              </button>
+              <button class="mode-tab" data-mode="single" id="tab-single">
+                [單身／曖昧模式 (3人)]
+              </button>
+            </div>
+
+            <!-- Terminal Screen -->
+            <div class="terminal-screen" id="terminal-screen">
+              <div class="terminal-screen-header">
+                <div class="status-indicator">
+                  <span class="pixel-led live"></span>
+                  <span class="terminal-mode-label" id="screen-mode-title">ACTIVE MODE: PARTNER FILE</span>
+                </div>
+                <div class="terminal-hud-digits">
+                  <span>RANK: <strong class="color-gold" id="hud-rank">A</strong></span>
+                  <span>COMBO: <strong class="color-orange" id="hud-combo">x7</strong></span>
+                </div>
+              </div>
+
+              <!-- Partner Mode Card View -->
+              <div class="screen-view active" id="view-partner">
+                <div class="target-profile-bar">
+                  <div class="profile-avatar">[PARTNER]</div>
+                  <div class="profile-meta">
+                    <span class="profile-name">伴侶：晴晴 (Little Sun)</span>
+                    <span class="profile-sub">已登記紀念日：生日、交往紀念日</span>
+                  </div>
+                  <span class="chip chip-pink">投入度: 剛剛好</span>
+                </div>
+
+                <div class="urgent-quest-card">
+                  <div class="urgent-banner">
+                    <span class="urgent-icon">[WARN]</span>
+                    <span class="urgent-tag">[HOME 最緊急任務]</span>
+                    <span class="countdown-badge" id="demo-countdown">倒數 47 天</span>
+                  </div>
+                  <h3 class="urgent-title">交往 3 週年紀念日準備旅程</h3>
+                  <div class="quest-progress-track">
+                    <div class="track-fill" style="width: 45%;"></div>
+                  </div>
+                  <div class="quest-checklist-preview">
+                    <div class="check-item done">
+                      <span class="check-box">☑</span>
+                      <span class="check-text">提前確認雙方週末行程</span>
+                      <span class="item-tag tag-green">+120 EXP</span>
+                    </div>
+                    <div class="check-item in-progress">
+                      <span class="check-box">☐</span>
+                      <span class="check-text">準備手作皮革鑰匙圈禮物</span>
+                      <span class="item-tag tag-orange">進行中</span>
+                    </div>
+                    <div class="check-item locked">
+                      <span class="check-box">🔒</span>
+                      <span class="check-text">在草稿箱寫好心意卡片</span>
+                      <span class="item-tag tag-pink">可預先草稿</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="terminal-action-row">
+                  <span class="terminal-hint">※ HOME 只顯示最緊急的一件事</span>
+                  <button class="terminal-action-btn" id="simulate-action-btn">[點擊模擬完成任務 +150 EXP]</button>
+                </div>
+              </div>
+
+              <!-- Single / Ambiguous Mode Card View -->
+              <div class="screen-view" id="view-single">
+                <div class="target-profile-bar">
+                  <div class="profile-avatar">[TARGET]</div>
+                  <div class="profile-meta">
+                    <span class="profile-name">攻略目標 01：圖書館學妹</span>
+                    <span class="profile-sub">曖昧槽位: 1/3 (可切換對象)</span>
+                  </div>
+                  <span class="chip chip-purple">曖昧進展中</span>
+                </div>
+
+                <div class="crush-slot-picker">
+                  <button class="slot-btn active">01 學妹 (攻略中)</button>
+                  <button class="slot-btn">02 露營隊友 (待攻略)</button>
+                  <button class="slot-btn empty">+ 空槽位</button>
+                </div>
+
+                <div class="urgent-quest-card">
+                  <div class="urgent-banner">
+                    <span class="urgent-icon">[ALERT]</span>
+                    <span class="urgent-tag">[CRUSH QUEST]</span>
+                    <span class="countdown-badge color-pink">戀愛感任務</span>
+                  </div>
+                  <h3 class="urgent-title">下週五期中考後：初次私下約喝咖啡</h3>
+                  <div class="quest-checklist-preview">
+                    <div class="check-item done">
+                      <span class="check-box">☑</span>
+                      <span class="check-text">蒐集她喜歡的昭和布丁口袋名單</span>
+                      <span class="item-tag tag-green">DONE</span>
+                    </div>
+                    <div class="check-item in-progress">
+                      <span class="check-box">☐</span>
+                      <span class="check-text">以借筆記為由發出自然邀約</span>
+                      <span class="item-tag tag-orange">TODAY</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="terminal-action-row">
+                  <span class="terminal-hint">※ 單身模式：登錄最多三位曖昧對象，體驗心動任務</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Bottom Chassis -->
+            <div class="terminal-chassis">
+              <span class="chassis-label">ROMANCE SURVIVAL ENGINE // MODEL-01</span>
+              <div class="vent-slits">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: GAME LOOP -->
+    <section class="section game-loop-section" id="game-loop">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">[01 // PROTOCOL]</div>
+          <h2 class="section-title">遊戲怎麼開始？</h2>
+          <p class="section-subtitle">
+            不論是穩定交往還是單身曖昧，只要四個步驟，把空泛承諾變成可落地的遊戲任務。
+          </p>
+        </div>
+
+        <div class="loop-grid">
+          <!-- Step 1 -->
+          <div class="pixel-card loop-card">
+            <div class="card-step-badge">STEP 01</div>
+            <div class="card-icon-frame">
+              <span class="pixel-step-tag">[01]</span>
+            </div>
+            <h3 class="card-title">選擇模式</h3>
+            <p class="card-desc">
+              有伴侶輸入伴侶稱呼與紀念日；單身模式可登錄最多三位曖昧對象，選定攻略對象體驗滿滿戀愛感任務。
+            </p>
+            <div class="card-footer-tag">
+              <span class="tag-pill tag-pink">雙模式自由切換</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pixel-card loop-card">
+            <div class="card-step-badge">STEP 02</div>
+            <div class="card-icon-frame">
+              <span class="pixel-step-tag">[02]</span>
+            </div>
+            <h3 class="card-title">FILE 設定重要日</h3>
+            <p class="card-desc">
+              輸入生日、週年或自訂紀念日。依據當前忙碌狀態選擇「投入程度」：輕量心意、剛剛好或完整企劃。
+            </p>
+            <div class="card-footer-tag">
+              <span class="tag-pill tag-cyan">投入程度自由調控</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pixel-card loop-card">
+            <div class="card-step-badge">STEP 03</div>
+            <div class="card-icon-frame">
+              <span class="pixel-step-tag">[03]</span>
+            </div>
+            <h3 class="card-title">接任務與倒數</h3>
+            <p class="card-desc">
+              HOME 只會專注顯示最緊急的一件事；進入 QUEST 查看全局階段任務。提前確認行程、挑禮物與寫卡片草稿。
+            </p>
+            <div class="card-footer-tag">
+              <span class="tag-pill tag-orange">HOME 只看最緊急一事</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="pixel-card loop-card">
+            <div class="card-step-badge">STEP 04</div>
+            <div class="card-icon-frame">
+              <span class="pixel-step-tag">[04]</span>
+            </div>
+            <h3 class="card-title">累積生存回饋</h3>
+            <p class="card-desc">
+              完成任務累積 EXP、連擊 Combo 與 Rank 等級。做得晚一點仍能結案；錯過絕非失敗，而是為下一次提前暖身。
+            </p>
+            <div class="card-footer-tag">
+              <span class="tag-pill tag-gold">EXP / COMBO / RANK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: JOURNEY & COUNTDOWN -->
+    <section class="section journey-section" id="journey">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">[02 // EXPEDITION]</div>
+          <h2 class="section-title">重要日，變成準備旅程</h2>
+          <p class="section-subtitle">
+            別再等到前一晚才驚慌失措。每個生日與紀念日，都是一場有節奏的階段作戰。
+          </p>
+        </div>
+
+        <div class="journey-layout">
+          <!-- Left: Big Interactive Journey Board -->
+          <div class="pixel-card journey-board">
+            <div class="board-header">
+              <div class="board-title-group">
+                <span class="board-tag">[ACTIVE JOURNEY FILE #0918]</span>
+                <h3 class="board-title">伴侶生日・還有 <span class="highlight-cyan" id="live-days-left">47</span> 天</h3>
+              </div>
+              <div class="board-urgency-chip">
+                <span class="blink-dot orange"></span>
+                <span>快點動起來</span>
+              </div>
+            </div>
+
+            <!-- Visual Progress Bar -->
+            <div class="journey-timeline-bar">
+              <div class="milestone completed" style="left: 6%;">
+                <span class="milestone-dot"></span>
+                <div class="milestone-text">
+                  <span class="milestone-days">60 天前</span>
+                  <span class="milestone-action">行程確認</span>
+                </div>
+              </div>
+              <div class="milestone active" style="left: 36%;">
+                <span class="milestone-dot"></span>
+                <div class="milestone-text">
+                  <span class="milestone-days">45 天前</span>
+                  <span class="milestone-action">準備禮物</span>
+                </div>
+              </div>
+              <div class="milestone" style="left: 68%;">
+                <span class="milestone-dot"></span>
+                <div class="milestone-text">
+                  <span class="milestone-days">14 天前</span>
+                  <span class="milestone-action">卡片草稿</span>
+                </div>
+              </div>
+              <div class="milestone" style="left: 94%;">
+                <span class="milestone-dot"></span>
+                <div class="milestone-text">
+                  <span class="milestone-days">重要日當天</span>
+                  <span class="milestone-action">慶生約會</span>
+                </div>
+              </div>
+              <div class="timeline-line-bg">
+                <div class="timeline-line-active" style="width: 36%;"></div>
+              </div>
+            </div>
+
+            <!-- Task List Interactive Demo -->
+            <div class="journey-task-list" id="journey-task-list">
+              <div class="task-row done" data-task-id="1">
+                <div class="task-left">
+                  <span class="pixel-checkbox checked">✓</span>
+                  <div class="task-info">
+                    <span class="task-name">提前確認雙方當日行程與休假</span>
+                    <span class="task-meta">階段 01・已於 3 天前完成</span>
+                  </div>
+                </div>
+                <div class="task-right">
+                  <span class="badge badge-green">+100 EXP</span>
+                </div>
+              </div>
+
+              <div class="task-row in-action" data-task-id="2">
+                <div class="task-left">
+                  <span class="pixel-checkbox checking" id="task-2-box">☐</span>
+                  <div class="task-info">
+                    <span class="task-name">物色並準備生日禮物（訂製耳機）</span>
+                    <span class="task-meta">階段 02・建議於 40 天前完成下訂</span>
+                  </div>
+                </div>
+                <div class="task-right">
+                  <span class="badge badge-orange">任務進行中</span>
+                </div>
+              </div>
+
+              <div class="task-row draft-ready" data-task-id="3">
+                <div class="task-left">
+                  <span class="pixel-checkbox locked">🔒</span>
+                  <div class="task-info">
+                    <span class="task-name">寫好給對方的真摯卡片</span>
+                    <span class="task-meta">尚未到開放時間，但已在「卡片草稿庫」存好草稿</span>
+                  </div>
+                </div>
+                <div class="task-right">
+                  <span class="badge badge-pink">草稿已保存</span>
+                </div>
+              </div>
+
+              <div class="task-row locked" data-task-id="4">
+                <div class="task-left">
+                  <span class="pixel-checkbox locked">🔒</span>
+                  <div class="task-info">
+                    <span class="task-name">安排預約特色景觀晚餐與交通</span>
+                    <span class="task-meta">階段 03・倒數 14 天開放</span>
+                  </div>
+                </div>
+                <div class="task-right">
+                  <span class="badge badge-sub">尚未解鎖</span>
+                </div>
+              </div>
+
+              <div class="task-row locked" data-task-id="5">
+                <div class="task-left">
+                  <span class="pixel-checkbox locked">🔒</span>
+                  <div class="task-info">
+                    <span class="task-name">旅程結算：留下這次的心得與故事</span>
+                    <span class="task-meta">旅程後解鎖・自動收錄至「篇章收藏」</span>
+                  </div>
+                </div>
+                <div class="task-right">
+                  <span class="badge badge-gold">篇章封存</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="board-action-footer">
+              <span class="board-footer-tip">[TIP] 點擊上面任務可即時試玩打勾與 EXP 結算效果</span>
+              <button class="btn-pixel btn-cyan-outline btn-sm" id="btn-toggle-draft-demo">
+                [查看卡片草稿預覽]
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Two Key Philosophy Panels -->
+          <div class="journey-side-panels">
+            <!-- Draft Box Feature -->
+            <div class="pixel-card side-feature-card">
+              <div class="feature-card-header">
+                <span class="feature-icon">[DRAFT]</span>
+                <h4 class="feature-title">卡片草稿箱：靈感不走丟</h4>
+              </div>
+              <p class="feature-desc">
+                有時候想對他說的話，會在深夜或通勤時突然湧上來。
+                <strong>尚未開放的卡片任務，也能先在 App 裡寫草稿並隨時保存</strong>，等任務正式開啟時一鍵提取，不用臨時抱佛腳擠出罐頭字句。
+              </p>
+              <div class="draft-preview-box" id="draft-preview-box">
+                <div class="draft-stamp">DRAFT // SAVED</div>
+                <p class="draft-snippet">「謝謝你這一年來每次在我加班時默默留的那盞玄關燈，生日快樂，今年也要一起活下來……」</p>
+                <span class="draft-time">自動保存於 2026.09.28 23:41</span>
+              </div>
+            </div>
+
+            <!-- Forgiving Mechanics -->
+            <div class="pixel-card side-feature-card">
+              <div class="feature-card-header">
+                <span class="feature-icon">[SYSTEM]</span>
+                <h4 class="feature-title">寬容的生存法則：晚一點也沒關係</h4>
+              </div>
+              <p class="feature-desc">
+                生活已經夠多 KPI，戀愛不該是懲罰。
+              </p>
+              <ul class="pixel-bullet-list">
+                <li><strong>做得晚一點仍可完成</strong>：只是結算 EXP 稍微折損，但心意依然被完整記錄。</li>
+                <li><strong>錯過任務不是遊戲結束 (GG)</strong>：系統不會否定你的愛，而是化為提醒，讓下一次能提早起跑。</li>
+              </ul>
+              <div class="philosophy-quote">
+                「我們不是要當完美情人，只是想在混亂的生活中，把記得的事好好做完。」
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 3 PREPARATION ROUTES -->
+    <section class="section routes-section" id="routes">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">[03 // FILE CONFIG]</div>
+          <h2 class="section-title">三種準備路線，由你決定投入程度</h2>
+          <p class="section-subtitle">
+            每一段關係在不同時期、不同忙碌程度下，需要彈性的步伐。在 FILE 裡自由選擇合適的投入深度。
+          </p>
+        </div>
+
+        <!-- Route Showcase Cards (Uniform Blue Border, Pure Introduction) -->
+        <div class="routes-grid">
+          <!-- Route 1: 輕量心意 -->
+          <div class="pixel-card route-card" data-route="light">
+            <div class="route-header">
+              <div class="route-tier-badge">TIER I</div>
+              <h3 class="route-name color-cyan">輕量心意</h3>
+              <p class="route-tagline">確認行程，完成一份小小心意</p>
+            </div>
+            <div class="route-tasks-preview">
+              <span class="route-target-count">2 個關鍵行動</span>
+              <ul class="route-list">
+                <li><span class="color-cyan">✓</span> 提早確認當日行程</li>
+                <li><span class="color-cyan">✓</span> 完成一份小小心意（手寫小卡或小點心）</li>
+              </ul>
+            </div>
+            <div class="route-bottom">
+              <div class="exp-estimate">
+                <span class="exp-label">完成回饋</span>
+                <span class="exp-val color-cyan">+300 EXP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Route 2: 剛剛好 (Default) -->
+          <div class="pixel-card route-card" data-route="balanced">
+            <div class="route-header">
+              <div class="route-tier-badge">TIER II</div>
+              <h3 class="route-name color-cyan">剛剛好</h3>
+              <p class="route-tagline">禮物、卡片與行程，抓住三個關鍵準備</p>
+            </div>
+            <div class="route-tasks-preview">
+              <span class="route-target-count">3 個關鍵準備</span>
+              <ul class="route-list">
+                <li><span class="color-cyan">✓</span> 雙方行程確認與預約</li>
+                <li><span class="color-cyan">✓</span> 提前挑選好一份心意禮物</li>
+                <li><span class="color-cyan">✓</span> 親筆寫下一張誠懇卡片</li>
+              </ul>
+            </div>
+            <div class="route-bottom">
+              <div class="exp-estimate">
+                <span class="exp-label">完成回饋</span>
+                <span class="exp-val color-gold">+650 EXP・Combo +1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Route 3: 完整企劃 -->
+          <div class="pixel-card route-card" data-route="full">
+            <div class="route-header">
+              <div class="route-tier-badge">TIER III</div>
+              <h3 class="route-name color-cyan">完整企劃</h3>
+              <p class="route-tagline">從晚餐、禮物、電影、卡片到行程全規劃</p>
+            </div>
+            <div class="route-tasks-preview">
+              <span class="route-target-count">5 階段完整儀式感</span>
+              <ul class="route-list">
+                <li><span class="color-cyan">✓</span> 浪漫晚餐餐廳預訂與座位挑選</li>
+                <li><span class="color-cyan">✓</span> 驚喜禮物準備與包裝封存</li>
+                <li><span class="color-cyan">✓</span> 電影或特別活動行程規劃</li>
+                <li><span class="color-cyan">✓</span> 真摯卡片草稿庫與手寫落地</li>
+                <li><span class="color-cyan">✓</span> 紀念日完整動線與突發雨備方案</li>
+              </ul>
+            </div>
+            <div class="route-bottom">
+              <div class="exp-estimate">
+                <span class="exp-label">完成回饋</span>
+                <span class="exp-val color-pink">+1200 EXP・解鎖專屬稱號</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-status-panel pixel-card" id="route-feedback-panel">
+          <span class="feedback-icon">[FILE TIP]</span>
+          <span class="feedback-text">
+            在 App FILE 設定投入程度；<strong>若未特別選擇，系統將預設為「剛剛好」路線</strong>（抓住禮物、卡片與行程三個關鍵準備）。
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: DAILY QUESTS & GAMIFICATION -->
+    <section class="section quests-section" id="quests">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">[04 // SYSTEM FEEDBACK & QUEST]</div>
+          <h2 class="section-title">日常與週末挑戰，把陪伴變成習慣</h2>
+          <p class="section-subtitle">
+            不強迫每天打卡交差，只在你今天想為感情做點什麼的時候，給出最輕量、最舒服的靈感入口。
+          </p>
+        </div>
+
+        <div class="quests-gamification-layout">
+          <!-- Left: Gamification Status Card -->
+          <div class="pixel-card gamification-card">
+            <div class="card-header-pixel">
+              <span class="pixel-title-tag">SURVIVAL METRICS</span>
+              <span class="color-gold">RANK SYSTEM</span>
+            </div>
+
+            <!-- Rank Badge -->
+            <div class="rank-display-box">
+              <div class="rank-crest">
+                <span class="crest-pixel-art">[RANK]</span>
+                <span class="rank-letter" id="user-rank-letter">A</span>
+              </div>
+              <div class="rank-details">
+                <div class="rank-title-row">
+                  <span class="rank-name color-gold">戀愛生存資深先鋒</span>
+                  <span class="rank-tag">LV. 18</span>
+                </div>
+                <div class="exp-bar-wrap">
+                  <div class="exp-bar-label">
+                    <span>EXP PROGRESS</span>
+                    <span id="exp-text">2,850 / 3,500</span>
+                  </div>
+                  <div class="exp-bar-track">
+                    <div class="exp-bar-fill" id="exp-bar-fill" style="width: 81%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Combo & Stats Grid -->
+            <div class="survival-stats-grid">
+              <div class="stat-box">
+                <span class="box-tag">[COMBO]</span>
+                <span class="box-num color-orange" id="combo-count">7</span>
+                <span class="box-label">連續紀念日 COMBO</span>
+              </div>
+              <div class="stat-box">
+                <span class="box-tag">[QUESTS]</span>
+                <span class="box-num color-green">24</span>
+                <span class="box-label">已通關階段任務</span>
+              </div>
+              <div class="stat-box">
+                <span class="box-tag">[ARCHIVE]</span>
+                <span class="box-num color-pink">6</span>
+                <span class="box-label">篇章故事典藏</span>
+              </div>
+            </div>
+
+            <div class="rank-guide-footer">
+              <span class="guide-title">[RANK 生存階級榜]</span>
+              <div class="rank-ladder">
+                <span class="ladder-item">S (神仙伴侶)</span>
+                <span class="ladder-item active">A (默契先鋒)</span>
+                <span class="ladder-item">B (穩定前行)</span>
+                <span class="ladder-item">C (新手摸索)</span>
+                <span class="ladder-item">D (搶救中)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Daily & Weekend Quest Board -->
+          <div class="quest-board-wrap">
+            <!-- Daily Quests -->
+            <div class="pixel-card quest-group-card">
+              <div class="group-title-bar">
+                <div class="title-left">
+                  <span class="group-icon">[DAILY]</span>
+                  <h3 class="group-title">每日小任務 (DAILY QUESTS)</h3>
+                </div>
+                <span class="chip chip-green">選配・無壓力</span>
+              </div>
+              <p class="group-sub">輕量心意，不需花大錢，一句話就能溫暖整天。</p>
+
+              <div class="quest-items-list">
+                <div class="quest-item" data-quest="daily-1">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">給對方一句具體、不敷衍的稱讚</span>
+                    <span class="quest-example">「你今天穿那件深藍外套配圍巾特別好看」</span>
+                  </div>
+                  <span class="quest-reward">+20 EXP</span>
+                </div>
+
+                <div class="quest-item" data-quest="daily-2">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">分享一首你今天反覆聽到的好歌</span>
+                    <span class="quest-example">附上一句「這段前奏讓我想起那天散步」</span>
+                  </div>
+                  <span class="quest-reward">+20 EXP</span>
+                </div>
+
+                <div class="quest-item" data-quest="daily-3">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">十分鐘放下手機的專心通話</span>
+                    <span class="quest-example">認真聽聽彼此今天遇見的一件小事</span>
+                  </div>
+                  <span class="quest-reward">+30 EXP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Weekend Challenges -->
+            <div class="pixel-card quest-group-card weekend-card">
+              <div class="group-title-bar">
+                <div class="title-left">
+                  <span class="group-icon color-purple">[WEEKEND]</span>
+                  <h3 class="group-title color-purple">週末小挑戰 (WEEKEND EVENT)</h3>
+                </div>
+                <span class="chip chip-purple">雙人默契解鎖</span>
+              </div>
+              <p class="group-sub">假期的特別調味劑，一起完成一場輕鬆探險。</p>
+
+              <div class="quest-items-list">
+                <div class="quest-item" data-quest="weekend-1">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">只用搞笑貼圖進行 5 回合接龍</span>
+                    <span class="quest-example">打破例行問候的趣味對話破冰</span>
+                  </div>
+                  <span class="quest-reward color-purple">+50 EXP</span>
+                </div>
+
+                <div class="quest-item" data-quest="weekend-2">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">用三張不露臉照片，讓對方猜你現在的行程</span>
+                    <span class="quest-example">增加日常好奇心與連線感</span>
+                  </div>
+                  <span class="quest-reward color-purple">+60 EXP</span>
+                </div>
+
+                <div class="quest-item" data-quest="weekend-3">
+                  <button class="quest-done-btn" aria-label="完成任務">☐</button>
+                  <div class="quest-content">
+                    <span class="quest-text">一起規劃 2 小時的不插電小散步</span>
+                    <span class="quest-example">一人選起點，另一人決定終點咖啡店</span>
+                  </div>
+                  <span class="quest-reward color-purple">+80 EXP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CHAPTER ARCHIVE -->
+    <section class="section archive-section" id="archive">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">[05 // MEMORY ARCHIVE]</div>
+          <h2 class="section-title">把故事留下來，關係不需每年重新開機</h2>
+          <p class="section-subtitle">
+            每完成一段準備旅程，任務成果、卡片文字與真實心得都會收進「篇章收藏」。
+            下一次同個日子到來時，回看上次做過什麼、學到什麼，讓兩人的記憶隨時間慢慢累積。
+          </p>
+        </div>
+
+        <div class="archive-showcase">
+          <div class="cassette-tabs">
+            <button class="cassette-tab active" data-chapter="2025">
+              <span class="tab-year">VOL. 02</span>
+              <span class="tab-name">2025 交往 2 週年</span>
+            </button>
+            <button class="cassette-tab" data-chapter="2024">
+              <span class="tab-year">VOL. 01</span>
+              <span class="tab-name">2024 伴侶生日・初次手作</span>
+            </button>
+            <button class="cassette-tab" data-chapter="future">
+              <span class="tab-year">VOL. 03</span>
+              <span class="tab-name">2026 準備中篇章...</span>
+            </button>
+          </div>
+
+          <!-- Archive Content Card -->
+          <div class="pixel-card archive-detail-card" id="archive-content">
+            <div class="archive-header-row">
+              <div class="archive-meta">
+                <span class="archive-badge">[CHAPTER STORED]</span>
+                <h3 class="archive-title">2025.10.14 交往兩週年・九份山城雨中約會</h3>
+              </div>
+              <div class="archive-stats-pill">
+                <span class="pill-item">EXP 結算: <strong class="color-gold">+1,100</strong></span>
+                <span class="pill-item">評級: <strong class="color-green">PERFECT CLEAR</strong></span>
+              </div>
+            </div>
+
+            <div class="archive-grid">
+              <!-- Left: Card draft preserved -->
+              <div class="archive-block">
+                <span class="block-label">[留存卡片與草稿]</span>
+                <div class="block-content card-letter-box">
+                  <p>「這一年我們搬了新家、換了工作，雖然常常忙到很晚，但謝謝你每次在我低潮時給我的溫暖擁抱。下山吃的那碗芋圓是我吃過最好吃的。第三年也請多多指教。」</p>
+                  <span class="letter-sign">— 寫於 2025.10.14 旅程圓滿日</span>
+                </div>
+              </div>
+
+              <!-- Right: What we learned & done -->
+              <div class="archive-block">
+                <span class="block-label">[上次做過的事與心得筆記]</span>
+                <div class="block-content notes-box">
+                  <ul class="notes-list">
+                    <li>
+                      <span class="note-bullet">[NOTE]</span>
+                      <strong>經驗記錄：</strong>九份週末容易下雨且塞車，下次重要日若出遊，一定要提前 3 週確認包車或飯店停車位。
+                    </li>
+                    <li>
+                      <span class="note-bullet">[ITEM]</span>
+                      <strong>禮物反饋：</strong>手沖咖啡濾杯她非常喜歡，每天早上都有用。
+                    </li>
+                    <li>
+                      <span class="note-bullet">[TIP]</span>
+                      <strong>下一次提醒：</strong>下一次週年紀念日，提早 45 天開始在 App FILE 設定，不踩雷。
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="archive-footer-bar">
+              <span class="archive-foot-note">「不是每一年重開新檔，而是牽著手讀同一本不斷寫下去的冒險小說。」</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FINAL CTA -->
+    <section class="cta-section" id="cta-section">
+      <div class="section-container">
+        <div class="pixel-card cta-banner-card">
+          <div class="cta-terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="cta-header-title">TERMINAL PROMPT: /JOIN_SURVIVAL</span>
+          </div>
+
+          <div class="cta-body">
+            <div class="cta-tag">READY TO START YOUR CHAPTER?</div>
+            <h2 class="cta-main-title">把「我記得」變成真的有做到。</h2>
+            <p class="cta-desc">
+              「我們，這次一起活下來。」<br>
+              登入終端，設定你的第一筆重要日，或加入曖昧攻略陣列。
+            </p>
+
+            <!-- Pre-order / Early Access Form -->
+            <form class="early-access-form" id="early-access-form">
+              <div class="input-pixel-group">
+                <label for="user-email" class="sr-only">輸入您的 Email</label>
+                <div class="input-wrapper">
+                  <span class="input-prompt">&gt;</span>
+                  <input 
+                    type="email" 
+                    id="user-email" 
+                    placeholder="輸入 Email 登記搶先體驗..." 
+                    required 
+                    autocomplete="email"
+                  >
+                </div>
+                <button type="submit" class="btn-pixel btn-primary btn-submit">
+                  <span class="btn-bracket">[</span>開始這段旅程<span class="btn-bracket">]</span>
+                </button>
+              </div>
+              <div class="form-feedback" id="form-feedback"></div>
+            </form>
+
+            <div class="cta-features-strip">
+              <span>✓ 支援 iOS &amp; Android 搶先體驗</span>
+              <span>✓ 伴侶與單身曖昧雙模式</span>
+              <span>✓ 絕無懲罰性強制打卡</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div class="pixel-modal-backdrop" id="success-modal" aria-hidden="true">
+    <div class="pixel-modal">
+      <div class="modal-header">
+        <span class="modal-title">[SYSTEM: ACCESS GRANTED]</span>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon">[SUCCESS]</div>
+        <h3 class="modal-heading">旅程登錄成功！</h3>
+        <p class="modal-text">
+          我們已將體驗邀請碼與第一份「戀愛生存新手包」發送至您的信箱：<br>
+          <strong class="color-cyan" id="modal-email-display">user@example.com</strong>
+        </p>
+        <p class="modal-sub">
+          「我們，這次一起活下來。」準備好迎接第一個重要日任務。
+        </p>
+        <button class="btn-pixel btn-primary" id="modal-ok-btn">[了解，進入系統備戰]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAFT MODAL PREVIEW -->
+  <div class="pixel-modal-backdrop" id="draft-modal" aria-hidden="true">
+    <div class="pixel-modal">
+      <div class="modal-header">
+        <span class="modal-title">[FILE // CARD_DRAFT_CACHE.TXT]</span>
+        <button class="modal-close" id="draft-modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon">[DRAFT]</div>
+        <h3 class="modal-heading">卡片草稿庫 (預覽模式)</h3>
+        <p class="modal-text">
+          任務尚未正式倒數到最後階段，但隨時隨地迸發的靈感，都能在此先敲下草稿並雲端保存：
+        </p>
+        <div class="draft-edit-box">
+          <textarea class="pixel-textarea" id="draft-textarea" rows="4">謝謝你這一年來，每次我加班回到家時，默默在玄關留的那盞暖黃小燈。生日快樂，今年我們也一起好好活下來！</textarea>
+        </div>
+        <p class="draft-auto-save-text">
+          <span class="blink-dot green"></span> 草稿即時保存中，當生日 T-14d 任務解鎖時將自動同步。
+        </p>
+        <button class="btn-pixel btn-cyan-outline" id="draft-modal-ok-btn">[保存草稿並關閉]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="system-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <span class="pixel-heart">❤</span> LOVEGAME I
+        </div>
+        <p class="footer-tagline">
+          把「我記得」變成真的有做到。戀愛別裝忙，這次一起活下來。
+        </p>
+      </div>
+
+      <div class="footer-meta">
+        <div class="sys-code-block">
+          <code>SYS: ROMANCE_SURVIVAL_OS v1.0.4</code>
+          <code>BUILD: 2026.09.30_RELEASE</code>
+          <code>STATUS: OPTIMAL [GREEN]</code>
+        </div>
+        <p class="footer-copyright">
+          &copy; 2026 LoveGame I Project. All rights reserved. 像素風戀愛生存遊戲終端。
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
